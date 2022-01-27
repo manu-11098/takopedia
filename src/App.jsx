@@ -81,12 +81,14 @@ function App() {
       </header>
       <section>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search-page" element={<SearchPage />} />
-          <Route path="/tacos/:id" element={<Tacos />}>
-            <Route path="details" element={<TacoDetails />}></Route>
+          <Route path="/takopedia">
+            <Route path="" element={<Home />} />
+            <Route path="search-page" element={<SearchPage />} />
+            <Route path="tacos/:id" element={<Tacos />}>
+              <Route path="details" element={<TacoDetails />}></Route>
+            </Route>
+            <Route path="*" element={<h1>Page not found</h1>} />
           </Route>
-          <Route path="*" element={<h1>Page not found</h1>} />
         </Routes>
       </section>
     </div>
