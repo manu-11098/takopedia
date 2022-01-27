@@ -22,7 +22,7 @@ const SearchPage = () => {
       <ul>
         {tacos.map((taco) => (
           <li key={taco.id}>
-            - <Link to={`/tacos/${taco.id}`}>{taco.name}</Link> -
+            - <Link to={`/takopedia/tacos/${taco.id}`}>{taco.name}</Link> -
           </li>
         ))}
       </ul>
@@ -67,12 +67,12 @@ function App() {
         <nav>
           <ul>
             <li>
-              <NavLink className={isActive} to="/">
+              <NavLink to="/takopedia">
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink className={isActive} to="search-page">
+              <NavLink className={isActive} to="/takopedia/search-page">
                 Search Page
               </NavLink>
             </li>
@@ -82,13 +82,14 @@ function App() {
       <section>
         <Routes>
           <Route path="/takopedia">
-            <Route path="" element={<Home />} />
+            <Route index element={<Home />} />
             <Route path="search-page" element={<SearchPage />} />
             <Route path="tacos/:id" element={<Tacos />}>
               <Route path="details" element={<TacoDetails />}></Route>
             </Route>
             <Route path="*" element={<h1>Page not found</h1>} />
           </Route>
+            
         </Routes>
       </section>
     </div>
